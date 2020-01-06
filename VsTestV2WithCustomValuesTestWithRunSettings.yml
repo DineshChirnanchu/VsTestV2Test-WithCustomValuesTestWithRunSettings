@@ -15,7 +15,7 @@ trigger:
 jobs:
 - job: RunTest2
   displayName: 'Run Tests'
-  pool: Default
+  pool: Din_pool
   steps:      
   - task: VisualStudioTestPlatformInstaller@1
     displayName: 'Visual Studio Test Platform Installer'
@@ -26,7 +26,7 @@ jobs:
       testSelector: 'testAssemblies'
       testAssemblyVer2: '**\*UnitTestProject1*.dll'
       searchFolder: '$(System.DefaultWorkingDirectory)\bin\Debug\'
-      runSettingsFile: '\SampleRunsettings.runsettings'
+      runSettingsFile: 'SampleRunsettings.runsettings'
       testFiltercriteria: Priority = 0 
       overrideTestrunParameters: '-connectionString DataSource=tcp:ServerName.database.windows.net,1433;InitialCatalog=DatabaseName -param1 OverrideParam1Value'
       pathtoCustomTestAdapters: '$(Build.SourcesDirectory)'

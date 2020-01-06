@@ -24,7 +24,7 @@ jobs:
   - task: VSTest@2
     inputs:
       testSelector: 'testAssemblies'
-      testAssemblyVer2: '**\*UnitTestProject1*.dll'
+      testAssemblyVer2: '**/*UnitTestProject1*.dll'
       searchFolder: '$(System.DefaultWorkingDirectory)\bin\Debug\'
       runSettingsFile: 'SampleRunsettings.runsettings'
       testFiltercriteria: Priority = 0 

@@ -35,5 +35,6 @@ jobs:
       testRunTitle: VsTestV2WithCustomValuesTestWithRunSettings
       platform: '$(BuildPlatform)'
       configuration: '$(BuildConfiguration)'
+      vsTestVersion: 'toolsInstaller'
 
         

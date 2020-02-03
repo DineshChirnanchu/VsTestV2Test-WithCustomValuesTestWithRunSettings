@@ -23,6 +23,4 @@ jobs:
       runInParallel: true
       codeCoverageEnabled: true
       testRunTitle: VsTestV2WithCustomValuesTestWithRunSettings
-      platform: '$(BuildPlatform)'
-      configuration: '$(BuildConfiguration)'
       vsTestVersion: 'toolsInstaller'

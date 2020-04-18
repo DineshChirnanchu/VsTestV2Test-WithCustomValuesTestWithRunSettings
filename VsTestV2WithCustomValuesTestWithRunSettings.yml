@@ -14,13 +14,18 @@ jobs:
   - task: VSTest@2
     inputs:
       testSelector: 'testAssemblies'
-      testAssemblyVer2: '**/*UnitTestProject1*.dll'
-      searchFolder: '$(System.DefaultWorkingDirectory)\bin\Debug\'
+      testAssemblyVer2: |
+        **\\*UnitTestProject1*.dll
+        **\\*NUnit.Tests1*.dll
+        **\\*FlakyTestProject*.dll
+        !**\obj\**
+      searchFolder: '$(System.DefaultWorkingDirectory)\'
       runSettingsFile: 'SampleRunsettings.runsettings'
       testFiltercriteria: 'Priority = 3 | FullyQualifiedName ~ TestRunParameter | FullyQualifiedName = NUnit.Tests1.TestClass.TestMethod'
-      overrideTestrunParameters: '-connectionString DataSource=tcp:ServerName.database.windows.net,1433;InitialCatalog=DatabaseName -param1 OverrideParam1Value'
-      pathtoCustomTestAdapters: '$(Build.SourcesDirectory)'
+      overrideTestrunParameters: '-connectionString DataSource=tcp:ServerName.database.windows.net,1433;InitialCatalog=DatabaseName -param1 OverrideParam1Value'   
+      publishRunAttachments: true
       runInParallel: true
       codeCoverageEnabled: true
-      testRunTitle: VsTestV2WithCustomValuesTestWithRunSettings
+      testRunTitle: 'VsTestV2WithCustomValuesTestWithRunSettings'
+      pathtoCustomTestAdapters: '$(Build.SourcesDirectory)'
       vsTestVersion: 'toolsInstaller'

@@ -1,7 +1,5 @@
 # The objective is to perform VSTESTV2 with RunSettings
 
-trigger:
-- master
 jobs:
 - job: RunTest2
   displayName: 'Run Tests'
@@ -15,9 +13,9 @@ jobs:
     inputs:
       testSelector: 'testAssemblies'
       testAssemblyVer2: |
-        **\\*UnitTestProject1*.dll
-        **\\*NUnit.Tests1*.dll
-        **\\*FlakyTestProject*.dll
+        **\*UnitTestProject1*.dll
+        **\*NUnit.Tests1*.dll
+        **\*FlakyTestProject*.dll
         !**\obj\**
       searchFolder: '$(System.DefaultWorkingDirectory)\'
       runSettingsFile: 'SampleRunsettings.runsettings'
